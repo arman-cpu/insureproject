@@ -10,6 +10,12 @@
 
   - name : Start Docker Service
     command : sudo systemctl start docker
+
+  - name : stop previous docker container 
+    command : docker stop arman
+
+  - name : rename docker dontainer 
+    command : docker rename arman arman
     
   - name: Deploy Docker Container
     command: docker run -itd -p 8084:8081 arman23/insureproject:1.0
