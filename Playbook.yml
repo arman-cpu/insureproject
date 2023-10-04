@@ -14,8 +14,11 @@
   - name : stop previous docker container 
     command : docker stop arman
 
-  - name : rename docker dontainer 
-    command : docker rename arman arman
+  - name : remove stopped container   
+    command : docker rm -f arman
+    
+  - name : remove docker image   
+    command : docker image  rm -f arman23/insureproject:1.0
     
   - name: Deploy Docker Container
-    command: docker run -itd -p 8084:8081 arman23/insureproject:1.0
+    command: docker run -itd --name arman -p 8084:8081 arman23/insureproject:1.0
