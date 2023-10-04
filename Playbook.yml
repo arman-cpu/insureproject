@@ -11,17 +11,5 @@
   - name : Start Docker Service
     command : sudo systemctl start docker
     
-  - name: List all running containers
-      docker_container_info:
-        state: running
-      register: running_containers
-
-   - name: Remove running containers
-      docker_container:
-        name: "{{ item.Name }}"
-        state: absent
-      loop: "{{ running_containers.containers }}"
-    
-
   - name: Deploy Docker Container
     command: docker run -itd -p 8084:8081 arman23/insureproject:1.0
